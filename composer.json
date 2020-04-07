@@ -1,0 +1,20 @@
+{
+    "name": "pi-web/pi-breadcrumb",
+    "description": "Package Pi Breadcrumb",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Quentin GUILLOU",
+            "email": "guillou.quentin.29@gmail.com"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "PiWeb\\PiBreadcrumb\\": ""
+        }
+    }
+}

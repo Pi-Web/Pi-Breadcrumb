@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+        bind:
+            $rootDir: '%kernel.project_dir%'
+
+    PiWeb\PiBreadcrumb\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,Event,Migrations,Tests,Kernel.php}'
+
+    block.breadcrumb:
+        class: PiWeb\PiBreadcrumb\Block\BreadcrumbBlock
+        tags:
+            - { name: sonata.block }
