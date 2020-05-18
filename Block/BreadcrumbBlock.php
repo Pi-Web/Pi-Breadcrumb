@@ -22,8 +22,6 @@ final class BreadcrumbBlock extends AbstractBlockService
 
     public function execute(BlockContextInterface $blockContext, Response $response = null): Response
     {
-        $settings = $blockContext->getSettings();
-
         return $this->renderResponse('@PiBreadcrumb/breadcrumb.html.twig', [
             'breadcrumb' => $this->breadcrumb
         ], $response);

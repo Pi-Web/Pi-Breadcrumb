@@ -16,5 +16,8 @@
         "psr-4": {
             "PiWeb\\PiBreadcrumb\\": ""
         }
+    },
+    "require": {
+        "sonata-project/block-bundle": "^4.2"
     }
 }
