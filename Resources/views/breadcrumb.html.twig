@@ -1,11 +1,24 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i></a></li>
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/" itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" itemid="/"><span class="d-none" itemprop="name">Accueil</span><i class="fa fa-home"></i></a>
+            <meta itemprop="position" content="1" />
+        </li>
         {% for item in breadcrumb.items %}
             {% if loop.last %}
-                <li class="breadcrumb-item active" aria-current="page">{{ item.label }}</li>
+                <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <span itemscope itemtype="http://schema.org/Thing" itemprop="item" itemid="{{ item.url }}">
+                        <span itemprop="name">{{ item.label }}</span>
+                    </span>
+                    <meta itemprop="position" content="{{ loop.index + 1 }}" />
+                </li>
             {% else %}
-                <li class="breadcrumb-item"><a href="{{ item.url }}">{{ item.label }}</a></li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="{{ item.url }}" itemscope itemtype="http://schema.org/Thing" itemprop="item" itemid="{{ item.url }}">
+                        <span itemprop="name">{{ item.label }}</span>
+                    </a>
+                    <meta itemprop="position" content="{{ loop.index + 1 }}" />
+                </li>
             {% endif %}
         {% endfor %}
     </ol>
