@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PiWeb\PiBreadcrumb\Block;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -16,20 +18,15 @@ use PiWeb\PiBreadcrumb\Model\Breadcrumb;
 final class BreadcrumbBlock extends AbstractBlockService
 {
     /**
-     * @var Breadcrumb
-     */
-    private Breadcrumb $breadcrumb;
-
-    /**
      * BreadcrumbBlock constructor.
      * @param Environment $environment
      * @param Breadcrumb $breadcrumb
      */
-    public function __construct(Environment $environment, Breadcrumb $breadcrumb)
-    {
+    public function __construct(
+        Environment $environment,
+        private Breadcrumb $breadcrumb,
+    ) {
         parent::__construct($environment);
-
-        $this->breadcrumb = $breadcrumb;
     }
 
     /**

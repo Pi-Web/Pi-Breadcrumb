@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PiWeb\PiBreadcrumb\DependencyInjection;
 
 use Exception;
@@ -16,7 +18,7 @@ class PiBreadcrumbExtension extends Extension
 
         try {
             $loader->load('services.yaml');
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
     }
 }

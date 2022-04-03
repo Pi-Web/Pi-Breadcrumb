@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PiWeb\PiBreadcrumb\Model;
 
 /**
@@ -9,24 +11,14 @@ namespace PiWeb\PiBreadcrumb\Model;
 class Item
 {
     /**
-     * @var string
-     */
-    private string $label;
-
-    /**
-     * @var string
-     */
-    private string $url;
-
-    /**
      * Item constructor.
      * @param string $label
      * @param string $url
      */
-    public function __construct(string $label = '', string $url = '/')
-    {
-        $this->label = $label;
-        $this->url = $url;
+    public function __construct(
+        private string $label = '',
+        private string $url = '/'
+    ) {
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PiWeb\PiBreadcrumb\Model;
 
 /**
@@ -25,7 +27,7 @@ class Breadcrumb
      * @param $label
      * @param string $url
      */
-    public function addItem($label, $url = ''): void
+    public function addItem($label, string $url = ''): void
     {
         $this->items[] = new Item($label, $url);
     }
