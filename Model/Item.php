@@ -12,19 +12,19 @@ class Item
 {
     /**
      * Item constructor.
-     * @param string $label
+     * @param mixed $label
      * @param string $url
      */
     public function __construct(
-        private string $label = '',
+        private mixed $label = '',
         private string $url = '/'
     ) {
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getLabel(): string
+    public function getLabel(): mixed
     {
         return $this->label;
     }
