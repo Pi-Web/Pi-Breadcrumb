@@ -18,6 +18,6 @@
         }
     },
     "require": {
-        "sonata-project/block-bundle": "^4.2"
+        "sonata-project/block-bundle": "^4.11.0"
     }
 }
