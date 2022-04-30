@@ -6,29 +6,31 @@ namespace PiWeb\PiBreadcrumb\Controller;
 
 use PiWeb\PiBreadcrumb\Model\Breadcrumb;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repository\NewsRepository;
-use App\Repository\EventRepository;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Util\TargetPathTrait;
-use Symfony\Component\HttpFoundation\Request;
+use Twig\Environment;
 
 final class BreadcrumbController extends AbstractController
 {
     /**
-     * DefaultController constructor.
-     * @param RequestStack $requestStack
+     * BreadcrumbController constructor.
+     * @param Breadcrumb $breadcrumb
+     * @param Environment $environment
      */
     public function __construct(
         private Breadcrumb $breadcrumb,
+        private Environment $environment,
     ) {
     }
 
     public function breadcrumbBlockAction(): Response
     {
-        return $this->render('@PiBreadcrumb/breadcrumb.html.twig', [
-            'breadcrumb' => $this->breadcrumb
-        ]);
+        return $this->render(
+            $this->environment->getLoader()->exists('bundles/PiBreadcrumbBundle/breadcrumb.html.twig') ?
+                'bundles/PiBreadcrumbBundle/breadcrumb.html.twig' :
+                '@PiBreadcrumb/breadcrumb.html.twig',
+            [
+                'breadcrumb' => $this->breadcrumb
+            ]
+        );
     }
 }
