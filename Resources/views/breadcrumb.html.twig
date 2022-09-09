@@ -8,7 +8,7 @@
             {% if loop.last %}
                 <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <span itemscope itemtype="https://schema.org/Thing" itemprop="item" itemid="{{ item.url }}">
-                        <span class="d-md-none" itemprop="name">{{ item.label|u.truncate(20, '...') }}</span>
+                        <span class="d-md-none" itemprop="name">{{ loop.index < 2 ? item.label : item.label|u.truncate(20, '...') }}</span>
                         <span class="d-none d-md-inline" itemprop="name">{{ item.label }}</span>
                     </span>
                     <meta itemprop="position" content="{{ loop.index + 1 }}" />
