@@ -11,14 +11,9 @@ use Twig\Environment;
 
 final class BreadcrumbController extends AbstractController
 {
-    /**
-     * BreadcrumbController constructor.
-     * @param Breadcrumb $breadcrumb
-     * @param Environment $environment
-     */
     public function __construct(
-        private Breadcrumb $breadcrumb,
-        private Environment $environment,
+        private readonly Breadcrumb $breadcrumb,
+        private readonly Environment $environment,
     ) {
     }
 
